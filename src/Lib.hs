@@ -53,3 +53,20 @@ getLocationFunction location = case location of
     "sf" -> sfOffice
     "dc" -> dcOffice
     _ -> (\name -> fst name ++ " " ++ snd name)
+
+-- Lesson 5
+
+ifEven :: Integral p => (p -> p) -> p -> p
+ifEven f n = if even n then f n else n
+
+ifEvenInc :: Integer -> Integer
+ifEvenInc = ifEven inc
+
+ifEvenDouble :: Integer -> Integer
+ifEvenDouble = ifEven double
+
+ifEvenSquare :: Integer -> Integer
+ifEvenSquare = ifEven square
+
+binaryPartialApplication :: (t1 -> t2 -> t3) -> t1 -> t2 -> t3
+binaryPartialApplication binaryFunc arg = \x -> binaryFunc arg x
